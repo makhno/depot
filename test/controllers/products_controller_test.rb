@@ -22,11 +22,15 @@ class ProductsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:products)
+    assert_select 'h1', 'Listing products'
+    assert_select 'tr.list_line_odd', 2
+    assert_select 'tr.list_line_even', 1
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_select 'h1', 'New product'
   end
 
   test "should create product" do
