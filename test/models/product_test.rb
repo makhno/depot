@@ -42,12 +42,12 @@ class ProductTest < ActiveSupport::TestCase
                           price:5)
     product.title = "abc"
     assert product.invalid?
-    assert_equal ["must contain at least 10 characters"],
+    assert_equal ["is too short (minimum is 10 characters)"],
       product.errors[:title]
 
     product.title = "abcdefghi"
     assert product.invalid?
-    assert_equal ["must contain at least 10 characters"],
+    assert_equal ["is too short (minimum is 10 characters)"],
       product.errors[:title]
 
     product.title = "abcdefghij"
