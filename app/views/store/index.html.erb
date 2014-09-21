@@ -4,6 +4,10 @@
 
 <h1>Your Pragmatic Catalog</h1>
 
+<% if @page_accessed_counter > 5 %>
+  <h3> This page was accessed <%= pluralize(@page_accessed_counter, "time") %> </h3>
+<% end %>
+
 <!-- START_HIGHLIGHT -->
 <% cache ['store', Product.latest] do %>
 <!-- END_HIGHLIGHT -->
